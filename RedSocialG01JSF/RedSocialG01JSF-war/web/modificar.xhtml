@@ -34,11 +34,11 @@
                 Twitter: <h:inputText value="#{loginBean.usuarioSeleccionado.twitter}" /> <br/>
                 Telefono: <h:inputText value="#{loginBean.usuarioSeleccionado.telefono}" /> <br/>
                 Fecha de nacimiento: <h:inputText value="#{loginBean.usuarioSeleccionado.fechaNacimiento}" /> <br/>
-                                     <f:convertDateTime pattern="yyyy-MM-dd"/>
+                                    <!-- <f:convertDateTime pattern="yyyy-MM-dd"/> -->
                 Pagina web: <h:inputText value="#{loginBean.usuarioSeleccionado.paginaWebUsuario}" /> <br/>
                 Aficiones: <h:inputText value="#{loginBean.usuarioSeleccionado.aficiones}" /> <br/>
                 Ciudad: <h:inputText value="#{loginBean.usuarioSeleccionado.ciudad}" /> <br/>
-            <h:commandButton action="#{loginBean.doGuardar}" value="Guardar" />
+            <h:commandButton action="#{modificarUsuarioBean.doGuardar()}" value="Guardar" />
         </h:form>
     </h:body>
 </html>

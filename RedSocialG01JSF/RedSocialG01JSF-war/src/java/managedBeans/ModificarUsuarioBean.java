@@ -17,7 +17,7 @@ import javax.inject.Inject;
  *
  * @author Usuario
  */
-@Named
+@Named(value = "modificarUsuarioBean")
 @RequestScoped
 public class ModificarUsuarioBean {
     

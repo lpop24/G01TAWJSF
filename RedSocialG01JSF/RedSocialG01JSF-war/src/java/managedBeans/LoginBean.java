@@ -56,6 +56,14 @@ public class LoginBean implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Usuario getUsuarioSeleccionado() {
+        return usuarioSeleccionado;
+    }
+
+    public void setUsuarioSeleccionado(Usuario usuarioSeleccionado) {
+        this.usuarioSeleccionado = usuarioSeleccionado;
+    }
     
     public String loguear(){
         if(user==null || user.isEmpty()){
