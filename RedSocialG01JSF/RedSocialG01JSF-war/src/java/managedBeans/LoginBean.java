@@ -5,9 +5,15 @@
  */
 package managedBeans;
 
+import entity.Login;
+import entity.Usuario;
+import facade.LoginFacade;
+import facade.UsuarioFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +23,55 @@ import java.io.Serializable;
 @SessionScoped
 public class LoginBean implements Serializable {
 
+    @EJB
+    private LoginFacade loginFacade;
+    
+    @EJB
+    private UsuarioFacade usuarioFacade;
+    
+    private String user = "";
+    private String password = "";
+    private List<Login> listaLogin;
+    private List<Usuario> listaUser;
+    private Usuario usuarioSeleccionado;
+    
     /**
      * Creates a new instance of LoginBean
      */
     public LoginBean() {
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String loguear(){
+        if(user==null || user.isEmpty()){
+            return("loginFallido");
+        }else{
+            listaLogin = this.loginFacade.encontrarUsuario(user, password);
+            
+            if(listaLogin.isEmpty()){
+                return("loginFallido");
+            }else{
+                listaUser = this.usuarioFacade.encontrarPorId(listaLogin.get(0).getIdLogin());
+                usuarioSeleccionado = listaUser.get(0);
+                
+                return("perfilMB");
+            }
+        }
     }
     
 }
