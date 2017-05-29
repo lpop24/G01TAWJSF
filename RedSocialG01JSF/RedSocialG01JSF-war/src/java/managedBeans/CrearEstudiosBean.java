@@ -10,16 +10,16 @@ import javax.enterprise.context.RequestScoped;
 
 /**
  *
- * @author Loubna Channouf Cherradi
+ * @author Usuario
  */
-@Named(value = "crearUsuarioMB")
+@Named(value = "crearEstudiosBean")
 @RequestScoped
-public class CrearUsuarioMB {
+public class CrearEstudiosBean {
 
     /**
-     * Creates a new instance of CrearUsuarioMB
+     * Creates a new instance of CrearEstudiosBean
      */
-    public CrearUsuarioMB() {
+    public CrearEstudiosBean() {
     }
     
 }
