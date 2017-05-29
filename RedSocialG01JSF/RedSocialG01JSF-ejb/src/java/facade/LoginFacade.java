@@ -6,9 +6,11 @@
 package facade;
 
 import entity.Login;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +29,15 @@ public class LoginFacade extends AbstractFacade<Login> {
 
     public LoginFacade() {
         super(Login.class);
+    }
+    
+    public List<Login> encontrarUsuario(String nombre, String password) {
+        Query q; 
+        
+        q = em.createQuery("select c from Login c where c.usuarioLogin like :usuario and c.password like :pass");
+        q.setParameter("usuario",  nombre);
+        q.setParameter("pass", password);
+        return q.getResultList();
     }
     
 }
