@@ -7,19 +7,64 @@ package managedBeans;
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import facade.UsuarioFacade;
+import entity.Usuario;
+import facade.EstudiosFacade;
+import facade.ExperiencialaboralFacade;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 
 /**
  *
- * @author Usuario
+ * @author Alberto Cazorla Suarez
  */
-@Named(value = "perfilMB")
+@Named(value = "perfilBean")
 @RequestScoped
 public class PerfilBean {
 
-    /**
-     * Creates a new instance of PerfilMB
-     */
+    @EJB
+    private ExperiencialaboralFacade experiencialaboralFacade;
+
+    @EJB
+    private EstudiosFacade estudiosFacade;
+    
+    @EJB
+    private UsuarioFacade usuarioFacade;
+    
+    
+    protected List<Usuario> usuario;
+    protected Usuario usuarioSeleccionado;
+    
     public PerfilBean() {
     }
+
+    @PostConstruct
+    public void init() {
+        this.usuario = this.usuarioFacade.findAll();
+    }
+    
+    public UsuarioFacade getUsuarioFacade() {
+        return usuarioFacade;
+    }
+
+    public void setUsuarioFacade(UsuarioFacade usuarioFacade) {
+        this.usuarioFacade = usuarioFacade;
+    }
+
+    public Usuario getUsuarioSeleccionado() {
+        return usuarioSeleccionado;
+    }
+
+    public void setUsuarioSeleccionado(Usuario usuarioSeleccionado) {
+        this.usuarioSeleccionado = usuarioSeleccionado;
+    }
+    
+    
+    
+    
+    
+
+
     
 }

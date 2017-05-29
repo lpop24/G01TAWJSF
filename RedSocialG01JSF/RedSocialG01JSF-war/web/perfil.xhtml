@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Perfil de usuario</title>
+    </h:head>
+    <h:body>
+        <h1>Perfil de <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText> !</h1>
+        <h2>Datos Personales</h2>
+        Nombre: <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText>!
+        <h:outputText value="#{perfilBean.usuarioSeleccionado.apellidos}"></h:outputText>!<br/>
+        Ciudad de origen: <h:outputText value="#{perfilBean.usuarioSeleccionado.ciudad}"></h:outputText><br/>
+        Correo: <h:outputText value="#{perfilBean.usuarioSeleccionado.correoElectronico}"></h:outputText><br/>
+        Fecha de nacimiento: <h:outputText value="#{perfilBean.usuarioSeleccionado.fechaNacimiento}"></h:outputText><br/>
+        Instagram: <h:outputText value="#{perfilBean.usuarioSeleccionado.instagram}"></h:outputText><br/>
+        Twitter: <h:outputText value="#{perfilBean.usuarioSeleccionado.twitter}"></h:outputText><br/>
+        Teléfono: <h:outputText value="#{perfilBean.usuarioSeleccionado.telefono}"></h:outputText><br/>
+        Aficiones: <h:outputText value="#{perfilBean.usuarioSeleccionado.aficiones}"></h:outputText><br/>
+        <h:commandButton action="#{perfilBean.usuarioSeleccionado.doEditar(usuarioSeleccionado)}"  value="Editar" />
+        <br/>
+        <br/>
+        <br/>
+        <h:dataTable value="#{perfilBean.usuarioSeleccionado.estudiosCollection}" var="estudio">
+           <f:facet name="header">
+                ESTUDIO
+           </f:facet>  
+            Centro: <h:outputText value="#{estudio.nombreCentro}"></h:outputText><br/>
+            Descripción: <h:outputText value="#{estudio.descripcionCentro}"></h:outputText><br/>    
+            Ubicación: <h:outputText value="#{estudio.ubicacionCentro}"></h:outputText><br/>
+            Fecha de inicio: <h:outputText value="#{estudio.fechaInicioEstudios}"></h:outputText><br/>
+            Fecha de fin: <h:outputText value="#{estudio.fechaFinEstudios}"></h:outputText><br/>
+            
+            <h:commandButton action="#{estudio.doBorrar(estudio)}"  value="Borrar" />            
+            <h:commandButton action="#{estudio.doEditar(estudio)}"  value="Editar" />              
+        </h:dataTable>
+        <h:commandButton action="#{perfilBean.usuarioSeleccionado.doAnyadirEstudio(usuarioSeleccionado)}"  value="Añadir estudio" />             
+        <br/>
+        <br/>
+        <h:dataTable value="#{perfilBean.usuarioSeleccionado.experiencialaboralCollection}" var="laboral">
+           <f:facet name="header">
+                EXPERIENCIA LABORAL
+           </f:facet>  
+            Empresa: <h:outputText value="#{laboral.nombreEmpresa}"></h:outputText><br/>
+            Descripción: <h:outputText value="#{laboral.descripcionEmpresa}"></h:outputText><br/>
+            Puesto: <h:outputText value="#{laboral.puesto}"></h:outputText><br/>
+            Ubicación: <h:outputText value="#{laboral.ubicacionEmpresa}"></h:outputText><br/>
+            Fecha de inicio: <h:outputText value="#{laboral.fechaInicioLaboral}"></h:outputText><br/>
+            Fecha de fin: <h:outputText value="#{laboral.fechaFinLaboral}"></h:outputText><br/>
+            Web: <h:outputText value="#{laboral.paginaWebEmpresa}"></h:outputText><br/>
+            
+            <h:commandButton action="#{laboral.doBorrar(laboral)}"  value="Borrar" />            
+            <h:commandButton action="#{laboral.doEditar(laboral)}"  value="Editar" />              
+        </h:dataTable>
+        <h:commandButton action="#{perfilBean.usuarioSeleccionado.doAnyadirExperienciaLaboral(usuarioSeleccionado)}"  value="Añadir Experiencia Laboral" /> 
+    </h:body>
+</html>
+
