@@ -18,7 +18,7 @@
         Twitter: <h:outputText value="#{perfilBean.usuarioSeleccionado.twitter}"></h:outputText><br/>
         Teléfono: <h:outputText value="#{perfilBean.usuarioSeleccionado.telefono}"></h:outputText><br/>
         Aficiones: <h:outputText value="#{perfilBean.usuarioSeleccionado.aficiones}"></h:outputText><br/>
-        <h:commandButton action="#{perfilBean.doEditarUsuario(usuarioSeleccionado)}"  value="Editar" />
+        <h:commandButton action="#{perfilBean.doEditarUsuario()}"  value="Editar" />
         <br/>
         <br/>
         <br/>
@@ -35,7 +35,7 @@
             <h:commandButton action="#{perfilBean.doBorrarEstudio(estudio)}"  value="Borrar" />            
             <h:commandButton action="#{perfilBean.doEditarEstudio(estudio)}"  value="Editar" />              
         </h:dataTable>
-        <h:commandButton action="#{perfilBean.doAnyadirEstudio(usuarioSeleccionado)}"  value="Añadir estudio" />             
+        <h:commandButton action="#{perfilBean.doAnadirEstudio()}"  value="Añadir estudio" />             
         <br/>
         <br/>
         <h:dataTable value="#{perfilBean.listaExperiencialaboral}" var="laboral">
@@ -53,7 +53,7 @@
             <h:commandButton action="#{perfilBean.doBorrarExperienciaLaboral(laboral)}"  value="Borrar" />            
             <h:commandButton action="#{perfilBean.doEditarExperienciaLaboral(laboral)}"  value="Editar" />              
         </h:dataTable>
-        <h:commandButton action="#{perfilBean.doAnyadirExperienciaLaboral(usuarioSeleccionado)}"  value="Añadir Experiencia Laboral" /> 
+        <h:commandButton action="#{perfilBean.doAnadirExperienciaLaboral()}"  value="Añadir Experiencia Laboral" /> 
     </h:body>
 </html>
 
