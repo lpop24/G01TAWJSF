@@ -6,6 +6,7 @@
 package managedBeans;
 
 import entity.Estudios;
+import java.util.Collection;
 import entity.Experiencialaboral;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -16,6 +17,7 @@ import facade.ExperiencialaboralFacade;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 
 /**
  *
@@ -34,11 +36,11 @@ public class PerfilBean {
     @EJB
     private UsuarioFacade usuarioFacade;
     
+    @Inject LoginBean loginBean;
     
-    //protected List<Usuario> usuario; // creo que esto no sirve pa na
     protected Usuario usuarioSeleccionado;
-    protected List<Experiencialaboral> listaExperiencialaboral;
-    protected List<Estudios> listaEstudios;
+    protected List <Experiencialaboral> listaExperiencialaboral;
+    protected List <Estudios> listaEstudios;
     protected Estudios estudioSeleccionado;
     protected Experiencialaboral experienciaLaboralSeleccionada;
     
@@ -48,7 +50,9 @@ public class PerfilBean {
 
     @PostConstruct
     public void init() {
-        this.usuarioSeleccionado = this.usuarioFacade.find("id");//esto deberia buscar el usuario cogiendo el id de algun sitio
+        this.usuarioSeleccionado = loginBean.getUsuarioSeleccionado();
+        this.listaEstudios = (List<Estudios>) this.usuarioSeleccionado.getEstudiosCollection();
+        this.listaExperiencialaboral = (List<Experiencialaboral>) this.usuarioSeleccionado.getExperiencialaboralCollection();
     }
     
     public UsuarioFacade getUsuarioFacade() {
@@ -75,17 +79,33 @@ public class PerfilBean {
         this.listaExperiencialaboral = listaExperiencialaboral;
     }
 
-    public List<Estudios> getListaEstudios() {
+    public List <Estudios> getListaEstudios() {
         return listaEstudios;
     }
 
     public void setListaEstudios(List<Estudios> listaEstudios) {
         this.listaEstudios = listaEstudios;
     }
+
+    public Estudios getEstudioSeleccionado() {
+        return estudioSeleccionado;
+    }
+
+    public void setEstudioSeleccionado(Estudios estudioSeleccionado) {
+        this.estudioSeleccionado = estudioSeleccionado;
+    }
+
+    public Experiencialaboral getExperienciaLaboralSeleccionada() {
+        return experienciaLaboralSeleccionada;
+    }
+
+    public void setExperienciaLaboralSeleccionada(Experiencialaboral experienciaLaboralSeleccionada) {
+        this.experienciaLaboralSeleccionada = experienciaLaboralSeleccionada;
+    }
     
-    public String doEditarUsuario (Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
-        return "modificarUsuarioBean";
+    public String doEditarUsuario (){
+ 
+        return "modificar";
     }
     
     public String doBorrarEstudio(Estudios estudioSeleccionado){
@@ -96,12 +116,12 @@ public class PerfilBean {
 
     public String doEditarEstudio (Estudios estudioSeleccionado){
         this.estudioSeleccionado = estudioSeleccionado;
-        return "modificarEstudiosBean";
+        return "modificarCrearEstudio";
     }
     
-    public String doAnyadirEstudio(Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
-        return "crearEstudiosBean";
+    public String doAnadirEstudio(){
+        this.estudioSeleccionado = null;
+        return "modificarCrearEstudios";
     }
     
     public String doBorrarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){
@@ -112,12 +132,12 @@ public class PerfilBean {
     
     public String doEditarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){
         this.experienciaLaboralSeleccionada = experiencialaboralseleccionada;
-        return "modificarExperienciaLaboralBean";
+        return "modificarCrearExperienciaLaboral";
     }
     
-    public String doAnyadirExperienciaLaboral (Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
-        return "crearExperienciaLaboralBean";
+    public String doAnadirExperienciaLaboral (){
+        this.experienciaLaboralSeleccionada = null;
+        return "modificarCrearExperienciaLaboral";
     }
     
 }
