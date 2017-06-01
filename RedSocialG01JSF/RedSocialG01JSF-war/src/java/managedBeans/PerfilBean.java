@@ -38,7 +38,6 @@ public class PerfilBean {
     
     @Inject LoginBean loginBean;
     
-    //protected List<Usuario> usuario; // creo que esto no sirve pa na
     protected Usuario usuarioSeleccionado;
     protected List <Experiencialaboral> listaExperiencialaboral;
     protected List <Estudios> listaEstudios;
@@ -88,8 +87,8 @@ public class PerfilBean {
         this.listaEstudios = listaEstudios;
     }
     
-    public String doEditarUsuario (Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
+    public String doEditarUsuario (){
+ 
         return "modificar";
     }
     
@@ -101,7 +100,7 @@ public class PerfilBean {
 
     public String doEditarEstudio (Estudios estudioSeleccionado){
         this.estudioSeleccionado = estudioSeleccionado;
-        return "modificarEstudiosBean";
+        return "modificarEstudio";
     }
     
     public String doAnyadirEstudio(Usuario usuarioSeleccionado){
@@ -117,7 +116,7 @@ public class PerfilBean {
     
     public String doEditarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){
         this.experienciaLaboralSeleccionada = experiencialaboralseleccionada;
-        return "modificarExperienciaLaboralBean";
+        return "modificarExperienciaLaboral";
     }
     
     public String doAnyadirExperienciaLaboral (Usuario usuarioSeleccionado){

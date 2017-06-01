@@ -5,21 +5,53 @@
  */
 package managedBeans;
 
+import entity.Estudios;
+import facade.EstudiosFacade;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 /**
  *
- * @author Usuario
+ * @author Alberto Cazorla Suarez
  */
 @Named(value = "modificarEstudiosBean")
 @RequestScoped
+
+
 public class ModificarEstudiosBean {
 
-    /**
-     * Creates a new instance of ModificarEstudiosBean
-     */
+    @EJB
+    private EstudiosFacade estudiosFacade;
+   
+    
+    @Inject PerfilBean perfilBean;
+    Estudios estudio;
+    
     public ModificarEstudiosBean() {
     }
+    
+    @PostConstruct
+    public void init()
+    {
+      this.estudio = perfilBean.estudioSeleccionado;  
+    }
+
+    public Estudios getEstudio() {
+        return estudio;
+    }
+
+    public void setEstudio(Estudios estudio) {
+        this.estudio = estudio;
+    }
+    
+    public String doGuardarEstudio(){
+        this.estudiosFacade.edit(estudio);
+        return "perfil";
+    }
+    
+    
     
 }
