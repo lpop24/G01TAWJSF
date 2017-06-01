@@ -17,9 +17,9 @@ import javax.inject.Inject;
  *
  * @author Alberto Cazorla Suarez
  */
-@Named(value = "modificarExperienciaLaboralBean")
+@Named(value = "modificarCrearExperienciaLaboralBean")
 @RequestScoped
-public class ModificarExperienciaLaboralBean {
+public class ModificarCrearExperienciaLaboralBean {
 
     @EJB
     private ExperiencialaboralFacade experiencialaboralFacade;
@@ -28,7 +28,7 @@ public class ModificarExperienciaLaboralBean {
     
     Experiencialaboral experienciaLaboral;
     
-    public ModificarExperienciaLaboralBean() {
+    public ModificarCrearExperienciaLaboralBean() {
     }
     
     @PostConstruct

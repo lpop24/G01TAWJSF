@@ -17,11 +17,11 @@ import javax.inject.Inject;
  *
  * @author Alberto Cazorla Suarez
  */
-@Named(value = "modificarEstudiosBean")
+@Named(value = "modificarCrearEstudiosBean")
 @RequestScoped
 
 
-public class ModificarEstudiosBean {
+public class ModificarCrearEstudiosBean {
 
     @EJB
     private EstudiosFacade estudiosFacade;
@@ -30,7 +30,7 @@ public class ModificarEstudiosBean {
     @Inject PerfilBean perfilBean;
     Estudios estudio;
     
-    public ModificarEstudiosBean() {
+    public ModificarCrearEstudiosBean() {
     }
     
     @PostConstruct

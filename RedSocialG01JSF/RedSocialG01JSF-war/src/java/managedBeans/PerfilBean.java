@@ -86,6 +86,22 @@ public class PerfilBean {
     public void setListaEstudios(List<Estudios> listaEstudios) {
         this.listaEstudios = listaEstudios;
     }
+
+    public Estudios getEstudioSeleccionado() {
+        return estudioSeleccionado;
+    }
+
+    public void setEstudioSeleccionado(Estudios estudioSeleccionado) {
+        this.estudioSeleccionado = estudioSeleccionado;
+    }
+
+    public Experiencialaboral getExperienciaLaboralSeleccionada() {
+        return experienciaLaboralSeleccionada;
+    }
+
+    public void setExperienciaLaboralSeleccionada(Experiencialaboral experienciaLaboralSeleccionada) {
+        this.experienciaLaboralSeleccionada = experienciaLaboralSeleccionada;
+    }
     
     public String doEditarUsuario (){
  
@@ -100,12 +116,12 @@ public class PerfilBean {
 
     public String doEditarEstudio (Estudios estudioSeleccionado){
         this.estudioSeleccionado = estudioSeleccionado;
-        return "modificarEstudio";
+        return "modificarCrearEstudio";
     }
     
-    public String doAnyadirEstudio(Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
-        return "crearEstudiosBean";
+    public String doAnadirEstudio(){
+        this.estudioSeleccionado = null;
+        return "modificarCrearEstudios";
     }
     
     public String doBorrarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){
@@ -116,12 +132,12 @@ public class PerfilBean {
     
     public String doEditarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){
         this.experienciaLaboralSeleccionada = experiencialaboralseleccionada;
-        return "modificarExperienciaLaboral";
+        return "modificarCrearExperienciaLaboral";
     }
     
-    public String doAnyadirExperienciaLaboral (Usuario usuarioSeleccionado){
-        this.usuarioSeleccionado = usuarioSeleccionado;
-        return "crearExperienciaLaboralBean";
+    public String doAnadirExperienciaLaboral (){
+        this.experienciaLaboralSeleccionada = null;
+        return "modificarCrearExperienciaLaboral";
     }
     
 }
