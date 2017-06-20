@@ -9,8 +9,8 @@
         <title>Estudio</title>
     </h:head>
     <h:body>
-        <h:outputLabel value="Crear" rendered="#{perfilBean.estudioSeleccionado == null}" />
-        <h:outputLabel value="Modificar" rendered="#{perfilBean.estudioSeleccionado != null}" /> estudio de: 
+        <h:outputLabel value="Crear estudios de:" rendered="#{perfilBean.estudioSeleccionado == null}" />
+        <h:outputLabel value="Modificar estudios de:" rendered="#{perfilBean.estudioSeleccionado != null}" /> estudio de: 
         <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}" />
         <h:outputText value="#{perfilBean.usuarioSeleccionado.apellidos}" /> <br/><br/>
         <h:form>

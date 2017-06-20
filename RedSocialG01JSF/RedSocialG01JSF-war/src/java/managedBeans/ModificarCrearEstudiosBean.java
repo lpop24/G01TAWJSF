@@ -15,7 +15,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author Alberto Cazorla Suarez
+ * @author Alberto Cazorla Suarez, Loubna Channouf Cherradi
  */
 @Named(value = "modificarCrearEstudiosBean")
 @RequestScoped
@@ -36,7 +36,11 @@ public class ModificarCrearEstudiosBean {
     @PostConstruct
     public void init()
     {
-      this.estudio = perfilBean.estudioSeleccionado;  
+        if(this.perfilBean.getEstudioSeleccionado() == null){
+            this.estudio = new Estudios();
+        }else{
+            this.estudio = perfilBean.estudioSeleccionado; 
+        }
     }
 
     public Estudios getEstudio() {
@@ -48,10 +52,13 @@ public class ModificarCrearEstudiosBean {
     }
     
     public String doGuardarEstudio(){
-        this.estudiosFacade.edit(estudio);
+        if(estudio == null){
+            this.estudiosFacade.create(estudio);
+        }else{
+            this.estudiosFacade.edit(estudio);
+        }
         return "perfil";
     }
-    
     
     
 }
