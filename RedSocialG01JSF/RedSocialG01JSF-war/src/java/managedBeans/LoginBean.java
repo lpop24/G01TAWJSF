@@ -77,7 +77,7 @@ public class LoginBean implements Serializable {
                 listaUser = this.usuarioFacade.encontrarPorId(listaLogin.get(0).getIdLogin());
                 usuarioSeleccionado = listaUser.get(0);
                 
-                return("perfilMB");
+                return("perfil");
             }
         }
     }
