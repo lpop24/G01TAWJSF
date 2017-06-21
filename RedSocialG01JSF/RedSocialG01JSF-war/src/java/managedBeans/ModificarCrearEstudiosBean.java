@@ -6,6 +6,7 @@
 package managedBeans;
 
 import entity.Estudios;
+import entity.Usuario;
 import facade.EstudiosFacade;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -26,7 +27,7 @@ public class ModificarCrearEstudiosBean {
     @EJB
     private EstudiosFacade estudiosFacade;
    
-    
+   
     @Inject PerfilBean perfilBean;
     Estudios estudio;
     
@@ -52,11 +53,13 @@ public class ModificarCrearEstudiosBean {
     }
     
     public String doGuardarEstudio(){
-        if(estudio == null){
+        estudio.setEstudiosUsuarioFK(perfilBean.getUsuarioSeleccionado());
+        if(estudio == null){            
             this.estudiosFacade.create(estudio);
         }else{
             this.estudiosFacade.edit(estudio);
         }
+        this.perfilBean.init();
         return "perfil";
     }
     

@@ -7,6 +7,7 @@
         <title>Perfil de usuario</title>
     </h:head>
     <h:body>
+        <h:form>
         <h1>Perfil de <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText> !</h1>
         <h2>Datos Personales</h2>
         Nombre: <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText>!
@@ -18,7 +19,7 @@
         Twitter: <h:outputText value="#{perfilBean.usuarioSeleccionado.twitter}"></h:outputText><br/>
         Teléfono: <h:outputText value="#{perfilBean.usuarioSeleccionado.telefono}"></h:outputText><br/>
         Aficiones: <h:outputText value="#{perfilBean.usuarioSeleccionado.aficiones}"></h:outputText><br/>
-        <h:commandButton action="#{perfilBean.doEditarUsuario()}"  value="Editar" />
+        
         <br/>
         <br/>
         <br/>
@@ -26,16 +27,25 @@
            <f:facet name="header">
                 ESTUDIO
            </f:facet>  
-            Centro: <h:outputText value="#{estudio.nombreCentro}"></h:outputText><br/>
-            Descripción: <h:outputText value="#{estudio.descripcionCentro}"></h:outputText><br/>    
-            Ubicación: <h:outputText value="#{estudio.ubicacionCentro}"></h:outputText><br/>
-            Fecha de inicio: <h:outputText value="#{estudio.fechaInicioEstudios}"></h:outputText><br/>
-            Fecha de fin: <h:outputText value="#{estudio.fechaFinEstudios}"></h:outputText><br/>
+            <h:column>
+                Centro: <h:outputText value="#{estudio.nombreCentro}"></h:outputText>
+            </h:column><br/>
+            <h:column>
+                Descripción: <h:outputText value="#{estudio.descripcionCentro}"></h:outputText>
+            </h:column><br/>  
+            <h:column>
+                Ubicación: <h:outputText value="#{estudio.ubicacionCentro}"></h:outputText>
+            </h:column><br/>
+            <h:column>
+                Fecha de inicio: <h:outputText value="#{estudio.fechaInicioEstudios}"></h:outputText>
+            </h:column><br/>
+            <h:column>
+                Fecha de fin: <h:outputText value="#{estudio.fechaFinEstudios}"></h:outputText>
+            </h:column><br/>
             
-            <h:commandButton action="#{perfilBean.doBorrarEstudio(estudio)}"  value="Borrar" />            
-            <h:commandButton action="#{perfilBean.doEditarEstudio(estudio)}"  value="Editar" />              
+           
         </h:dataTable>
-        <h:commandButton action="#{perfilBean.doAnadirEstudio()}"  value="Añadir estudio" />             
+        <h:button value="Añadir Estudios"  outcome="modificarCrearEstudio.xhtml" />             
         <br/>
         <br/>
         <h:dataTable value="#{perfilBean.listaExperiencialaboral}" var="laboral">
@@ -50,10 +60,9 @@
             Fecha de fin: <h:outputText value="#{laboral.fechaFinLaboral}"></h:outputText><br/>
             Web: <h:outputText value="#{laboral.paginaWebEmpresa}"></h:outputText><br/>
             
-            <h:commandButton action="#{perfilBean.doBorrarExperienciaLaboral(laboral)}"  value="Borrar" />            
-            <h:commandButton action="#{perfilBean.doEditarExperienciaLaboral(laboral)}"  value="Editar" />              
+                       
         </h:dataTable>
-        <h:commandButton action="#{perfilBean.doAnadirExperienciaLaboral()}"  value="Añadir Experiencia Laboral" /> 
+        </h:form>
     </h:body>
 </html>
 

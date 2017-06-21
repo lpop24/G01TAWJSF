@@ -51,7 +51,8 @@ public class PerfilBean {
     @PostConstruct
     public void init() {
         this.usuarioSeleccionado = loginBean.getUsuarioSeleccionado();
-        this.listaEstudios = (List<Estudios>) this.usuarioSeleccionado.getEstudiosCollection();
+        this.listaEstudios = this.estudiosFacade.findEstudios(usuarioSeleccionado.getIdUsuario());
+        //this.listaEstudios = (List<Estudios>) this.usuarioSeleccionado.getEstudiosCollection();
         this.listaExperiencialaboral = (List<Experiencialaboral>) this.usuarioSeleccionado.getExperiencialaboralCollection();
     }
     
@@ -116,7 +117,7 @@ public class PerfilBean {
 
     public String doEditarEstudio (Estudios estudioSeleccionado){
         this.estudioSeleccionado = estudioSeleccionado;
-        return "modificarCrearEstudio";
+        return "modificarCrearEstudiosBean";
     }
     
     public String doAnadirEstudio(){
