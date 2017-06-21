@@ -15,7 +15,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author Alberto Cazorla Suarez
+ * @author Alberto Cazorla Suarez, Loubna Channouf Cherradi
  */
 @Named(value = "modificarCrearExperienciaLaboralBean")
 @RequestScoped
@@ -34,6 +34,9 @@ public class ModificarCrearExperienciaLaboralBean {
     @PostConstruct
     public void init()
     {
+        if(this.perfilBean.getExperienciaLaboralSeleccionada() == null){
+            
+        }
       this.experienciaLaboral = perfilBean.experienciaLaboralSeleccionada;  
     }
 
