@@ -4,7 +4,8 @@
 <!-- @author: Alberto Cazorla Suarez -->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Experiencia Laboral</title>
     </h:head>
@@ -20,8 +21,12 @@
                 Pagina web: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.paginaWebEmpresa}" /> <br/><br/>
                 Descripcion: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.descripcionEmpresa}" /> <br/><br/>
                 Puesto: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.puesto}" /> <br/><br/>
-                Fecha de inicio: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaInicioLaboral}" /> <br/><br/>
-                Fecha de fin: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaFinLaboral}" /> <br/><br/>
+                Fecha de inicio: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaInicioLaboral}" > 
+                                              <f:convertDateTime pattern="yyyy-MM-dd"/> 
+                                 </h:inputText>              <br/><br/>
+                Fecha de fin: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaFinLaboral}" >
+                                           <f:convertDateTime pattern="yyyy-MM-dd"/> 
+                              </h:inputText><br/><br/>
                 
                 <h:commandButton action="#{modificarCrearExperienciaLaboralBean.doGuardarExperienciaLaboral()}" value="Guardar" />
         </h:form>

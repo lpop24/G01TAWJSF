@@ -21,7 +21,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author Alberto Cazorla Suarez
+ * @author Alberto Cazorla Suarez, Loubna Channouf Cherradi
  */
 @Named(value = "perfilBean")
 @RequestScoped
@@ -53,7 +53,8 @@ public class PerfilBean {
         this.usuarioSeleccionado = loginBean.getUsuarioSeleccionado();
         this.listaEstudios = this.estudiosFacade.findEstudios(usuarioSeleccionado.getIdUsuario());
         //this.listaEstudios = (List<Estudios>) this.usuarioSeleccionado.getEstudiosCollection();
-        this.listaExperiencialaboral = (List<Experiencialaboral>) this.usuarioSeleccionado.getExperiencialaboralCollection();
+        this.listaExperiencialaboral = this.experiencialaboralFacade.findExpLaboral(usuarioSeleccionado.getIdUsuario());
+        //this.listaExperiencialaboral = (List<Experiencialaboral>) this.usuarioSeleccionado.getExperiencialaboralCollection();
     }
     
     public UsuarioFacade getUsuarioFacade() {

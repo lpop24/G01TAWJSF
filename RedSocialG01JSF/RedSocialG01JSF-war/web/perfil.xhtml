@@ -52,16 +52,31 @@
            <f:facet name="header">
                 EXPERIENCIA LABORAL
            </f:facet>  
-            Empresa: <h:outputText value="#{laboral.nombreEmpresa}"></h:outputText><br/>
+            <h:column>
+            Empresa: <h:outputText value="#{laboral.nombreEmpresa}"></h:outputText>
+            </h:column><br/>
+            <h:column>
             Descripción: <h:outputText value="#{laboral.descripcionEmpresa}"></h:outputText><br/>
+            </h:column><br/>
+            <h:column>
             Puesto: <h:outputText value="#{laboral.puesto}"></h:outputText><br/>
+            </h:column><br/>
+            <h:column>
             Ubicación: <h:outputText value="#{laboral.ubicacionEmpresa}"></h:outputText><br/>
+            </h:column><br/>
+            <h:column>
             Fecha de inicio: <h:outputText value="#{laboral.fechaInicioLaboral}"></h:outputText><br/>
+            </h:column><br/>
+            <h:column>
             Fecha de fin: <h:outputText value="#{laboral.fechaFinLaboral}"></h:outputText><br/>
+            </h:column><br/>
+            <h:column>
             Web: <h:outputText value="#{laboral.paginaWebEmpresa}"></h:outputText><br/>
+            </h:column><br/>
             
                        
         </h:dataTable>
+        <h:button value="Añadir Experiencia Laboral"  outcome="modificarCrearExperienciaLaboral.xhtml" /> 
         </h:form>
     </h:body>
 </html>
