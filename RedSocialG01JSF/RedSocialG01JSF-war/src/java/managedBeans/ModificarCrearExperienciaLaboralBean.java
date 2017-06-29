@@ -34,11 +34,11 @@ public class ModificarCrearExperienciaLaboralBean {
     @PostConstruct
     public void init()
     {
-        if(this.perfilBean.getExperienciaLaboralSeleccionada() == null){
-            this.experienciaLaboral = new Experiencialaboral();
-        }else{
-            this.experienciaLaboral = perfilBean.experienciaLaboralSeleccionada;
-        } 
+       if(this.perfilBean.getExperienciaLaboralSeleccionada() == null){
+           this.experienciaLaboral = new Experiencialaboral();
+       }else{
+           this.experienciaLaboral = perfilBean.getExperienciaLaboralSeleccionada();
+       } 
     }
 
     public Experiencialaboral getExperienciaLaboral() {
@@ -50,13 +50,14 @@ public class ModificarCrearExperienciaLaboralBean {
     }
     
     public String doGuardarExperienciaLaboral(){
-        experienciaLaboral.setExpLaboralUsuarioFK(perfilBean.getUsuarioSeleccionado());
-        if(experienciaLaboral == null){
-            this.experiencialaboralFacade.create(experienciaLaboral);
-        }else{
-            this.experiencialaboralFacade.edit(experienciaLaboral);
-        }
-        this.perfilBean.init();
-        return "perfil";
-    }
+       experienciaLaboral.setExpLaboralUsuarioFK(perfilBean.getUsuarioSeleccionado());
+       if(experienciaLaboral.getIdExperienciaLaboral() == null){
+           this.experiencialaboralFacade.create(experienciaLaboral);
+       }else{
+           this.experiencialaboralFacade.edit(experienciaLaboral);
+       }
+       this.perfilBean.init();
+       return "perfil";
+   }
 }
+

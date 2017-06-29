@@ -22,14 +22,15 @@
                 Descripcion: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.descripcionEmpresa}" /> <br/><br/>
                 Puesto: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.puesto}" /> <br/><br/>
                 Fecha de inicio: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaInicioLaboral}" > 
-                                              <f:convertDateTime pattern="yyyy-MM-dd"/> 
+                                              <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" /> 
                                  </h:inputText>              <br/><br/>
                 Fecha de fin: <h:inputText value="#{modificarCrearExperienciaLaboralBean.experienciaLaboral.fechaFinLaboral}" >
-                                           <f:convertDateTime pattern="yyyy-MM-dd"/> 
+                    <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" /> 
                               </h:inputText><br/><br/>
                 
                 <h:commandButton action="#{modificarCrearExperienciaLaboralBean.doGuardarExperienciaLaboral()}" value="Guardar" />
         </h:form>
+
         
     </h:body>
 </html>

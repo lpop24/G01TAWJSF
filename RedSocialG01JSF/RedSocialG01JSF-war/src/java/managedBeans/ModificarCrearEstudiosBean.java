@@ -40,7 +40,7 @@ public class ModificarCrearEstudiosBean {
         if(this.perfilBean.getEstudioSeleccionado() == null){
             this.estudio = new Estudios();
         }else{
-            this.estudio = perfilBean.estudioSeleccionado; 
+            this.estudio = perfilBean.getEstudioSeleccionado(); 
         }
     }
 
@@ -54,7 +54,8 @@ public class ModificarCrearEstudiosBean {
     
     public String doGuardarEstudio(){
         estudio.setEstudiosUsuarioFK(perfilBean.getUsuarioSeleccionado());
-        if(estudio == null){            
+        estudio.setIdEstudios(estudio.getIdEstudios());
+        if(estudio.getIdEstudios() == null){            
             this.estudiosFacade.create(estudio);
         }else{
             this.estudiosFacade.edit(estudio);

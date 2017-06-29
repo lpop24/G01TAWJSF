@@ -11,18 +11,18 @@
     </h:head>
     <h:body>
         <h:outputLabel value="Crear estudios de:" rendered="#{perfilBean.estudioSeleccionado == null}" />
-        <h:outputLabel value="Modificar estudios de:" rendered="#{perfilBean.estudioSeleccionado != null}" /> estudio de: 
+        <h:outputLabel value="Modificar estudios de:" rendered="#{perfilBean.estudioSeleccionado != null}" />  
         <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}" />
         <h:outputText value="#{perfilBean.usuarioSeleccionado.apellidos}" /> <br/><br/>
         <h:form>
-                Centro: <h:inputText value="#{modificarCrearEstudiosBean.estudio.nombreCentro}" /> <br/><br/>
+            Centro: <h:inputText value="#{modificarCrearEstudiosBean.estudio.nombreCentro}" /> <br/><br/>
                 Descripcion: <h:inputText value="#{modificarCrearEstudiosBean.estudio.descripcionCentro}" /> <br/><br/>
                 Ubicacion: <h:inputText value="#{modificarCrearEstudiosBean.estudio.ubicacionCentro}" /> <br/><br/>
                 Fecha de inicio: <h:inputText value="#{modificarCrearEstudiosBean.estudio.fechaInicioEstudios}" >
-                                              <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                                              <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />  
                                  </h:inputText><br/><br/>
                 Fecha de fin: <h:inputText value="#{modificarCrearEstudiosBean.estudio.fechaFinEstudios}">
-                                            <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                                            <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />  
                                  </h:inputText><br/><br/>
                 
             <h:commandButton action="#{modificarCrearEstudiosBean.doGuardarEstudio()}" value="Guardar" />

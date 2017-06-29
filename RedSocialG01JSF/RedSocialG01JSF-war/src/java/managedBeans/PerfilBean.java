@@ -6,7 +6,6 @@
 package managedBeans;
 
 import entity.Estudios;
-import java.util.Collection;
 import entity.Experiencialaboral;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -21,7 +20,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author Alberto Cazorla Suarez, Loubna Channouf Cherradi
+ * @author Alberto Cazorla Suarez
  */
 @Named(value = "perfilBean")
 @RequestScoped
@@ -50,11 +49,10 @@ public class PerfilBean {
 
     @PostConstruct
     public void init() {
-        this.usuarioSeleccionado = loginBean.getUsuarioSeleccionado();
-        this.listaEstudios = this.estudiosFacade.findEstudios(usuarioSeleccionado.getIdUsuario());
-        //this.listaEstudios = (List<Estudios>) this.usuarioSeleccionado.getEstudiosCollection();
-        this.listaExperiencialaboral = this.experiencialaboralFacade.findExpLaboral(usuarioSeleccionado.getIdUsuario());
-        //this.listaExperiencialaboral = (List<Experiencialaboral>) this.usuarioSeleccionado.getExperiencialaboralCollection();
+       this.usuarioSeleccionado = loginBean.getUsuarioSeleccionado();
+       this.listaEstudios = this.estudiosFacade.findEstudios(usuarioSeleccionado.getIdUsuario());
+       this.listaExperiencialaboral = this.experiencialaboralFacade.findExpLaboral(usuarioSeleccionado.getIdUsuario());
+       
     }
     
     public UsuarioFacade getUsuarioFacade() {
@@ -118,12 +116,12 @@ public class PerfilBean {
 
     public String doEditarEstudio (Estudios estudioSeleccionado){
         this.estudioSeleccionado = estudioSeleccionado;
-        return "modificarCrearEstudiosBean";
+        return "modificarCrearEstudio";
     }
     
     public String doAnadirEstudio(){
         this.estudioSeleccionado = null;
-        return "modificarCrearEstudios";
+        return "modificarCrearEstudio";
     }
     
     public String doBorrarExperienciaLaboral(Experiencialaboral experiencialaboralseleccionada){

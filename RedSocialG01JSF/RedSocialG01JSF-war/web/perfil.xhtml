@@ -8,21 +8,25 @@
     </h:head>
     <h:body>
         <h:form>
-        <h1>Perfil de <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText> !</h1>
+        <h1>Perfil de <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText> </h1>
         <h2>Datos Personales</h2>
-        Nombre: <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText>!
-        <h:outputText value="#{perfilBean.usuarioSeleccionado.apellidos}"></h:outputText>!<br/>
+        Nombre: <h:outputText value="#{perfilBean.usuarioSeleccionado.nombre}"></h:outputText> 
+        <h:outputText value="#{perfilBean.usuarioSeleccionado.apellidos}"></h:outputText><br/>
         Ciudad de origen: <h:outputText value="#{perfilBean.usuarioSeleccionado.ciudad}"></h:outputText><br/>
         Correo: <h:outputText value="#{perfilBean.usuarioSeleccionado.correoElectronico}"></h:outputText><br/>
-        Fecha de nacimiento: <h:outputText value="#{perfilBean.usuarioSeleccionado.fechaNacimiento}"></h:outputText><br/>
+        Fecha de nacimiento: <h:outputText value="#{perfilBean.usuarioSeleccionado.fechaNacimiento}">
+                                    <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />
+                             </h:outputText><br/>
         Instagram: <h:outputText value="#{perfilBean.usuarioSeleccionado.instagram}"></h:outputText><br/>
         Twitter: <h:outputText value="#{perfilBean.usuarioSeleccionado.twitter}"></h:outputText><br/>
         Teléfono: <h:outputText value="#{perfilBean.usuarioSeleccionado.telefono}"></h:outputText><br/>
         Aficiones: <h:outputText value="#{perfilBean.usuarioSeleccionado.aficiones}"></h:outputText><br/>
         
+        </h:form>
         <br/>
         <br/>
         <br/>
+        <h:form>
         <h:dataTable value="#{perfilBean.listaEstudios}" var="estudio">
            <f:facet name="header">
                 ESTUDIO
@@ -37,17 +41,28 @@
                 Ubicación: <h:outputText value="#{estudio.ubicacionCentro}"></h:outputText>
             </h:column><br/>
             <h:column>
-                Fecha de inicio: <h:outputText value="#{estudio.fechaInicioEstudios}"></h:outputText>
+                Fecha de inicio: <h:outputText value="#{estudio.fechaInicioEstudios}">
+                                    <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />
+                                 </h:outputText>
             </h:column><br/>
             <h:column>
-                Fecha de fin: <h:outputText value="#{estudio.fechaFinEstudios}"></h:outputText>
+                Fecha de fin: <h:outputText value="#{estudio.fechaFinEstudios}">
+                                <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />
+                              </h:outputText>
             </h:column><br/>
-            
+            <h:column>               
+                <h:commandButton value="Editar" action="#{perfilBean.doEditarEstudio(estudio)}" /> 
+            </h:column>
+            <h:column>
+                <h:commandLink value="Borrar"  action="#{perfilBean.doBorrarEstudio(estudio)}" /> 
+            </h:column>
            
         </h:dataTable>
-        <h:button value="Añadir Estudios"  outcome="modificarCrearEstudio.xhtml" />             
+        <h:button value="Añadir Estudios"  outcome="modificarCrearEstudio.xhtml" />
+        </h:form>
         <br/>
         <br/>
+        <h:form>
         <h:dataTable value="#{perfilBean.listaExperiencialaboral}" var="laboral">
            <f:facet name="header">
                 EXPERIENCIA LABORAL
@@ -65,15 +80,24 @@
             Ubicación: <h:outputText value="#{laboral.ubicacionEmpresa}"></h:outputText><br/>
             </h:column><br/>
             <h:column>
-            Fecha de inicio: <h:outputText value="#{laboral.fechaInicioLaboral}"></h:outputText><br/>
+            Fecha de inicio: <h:outputText value="#{laboral.fechaInicioLaboral}">
+                                <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />
+                             </h:outputText><br/>
             </h:column><br/>
             <h:column>
-            Fecha de fin: <h:outputText value="#{laboral.fechaFinLaboral}"></h:outputText><br/>
+            Fecha de fin: <h:outputText value="#{laboral.fechaFinLaboral}">
+                               <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short" />
+                          </h:outputText><br/>
             </h:column><br/>
             <h:column>
             Web: <h:outputText value="#{laboral.paginaWebEmpresa}"></h:outputText><br/>
             </h:column><br/>
-            
+            <h:column>               
+                <h:commandButton value="Editar" action="#{perfilBean.doEditarExperienciaLaboral(laboral)}" /> 
+            </h:column>
+            <h:column>
+                <h:commandLink value="Borrar"  action="#{perfilBean.doBorrarExperienciaLaboral(laboral)}" /> 
+            </h:column>
                        
         </h:dataTable>
         <h:button value="Añadir Experiencia Laboral"  outcome="modificarCrearExperienciaLaboral.xhtml" /> 
