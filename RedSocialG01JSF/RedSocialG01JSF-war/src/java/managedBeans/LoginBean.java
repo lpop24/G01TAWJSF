@@ -82,4 +82,13 @@ public class LoginBean implements Serializable {
         }
     }
     
+    public String logout(){
+        usuarioSeleccionado = null;
+        user = null;
+        password = null;
+        listaUser = null;
+        listaLogin = null;
+        return("login");
+    }
+    
 }

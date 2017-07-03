@@ -1,0 +1,342 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-jul-2017, 0:08:33
+    Author     : Loubna
+*/
+
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, th, td
+{
+    margin: 0; padding: 0; border: 0; outline: none;
+}
+
+body
+{
+    line-height: 1;
+    font-size: 88%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 100%;
+    padding: .6em 0;
+    margin: 0 15px;
+}
+
+/* Float */
+.floatLeft
+{
+    float: left;
+    padding: .5em .5em .5em 0;
+}
+
+.floatRight
+{
+    float: right;
+    padding: .5em 0 .5em .5em;
+}
+
+/* Container */
+.container
+{
+    padding:0.01em 16px
+}
+
+
+/* Colors */
+.blue,.hover-blue:hover
+{
+    color:#fff;
+    background-color:#0079BF
+}
+.lightblue,.hover-lightblue:hover
+{
+    color:#fff;
+    background-color:#057EC5
+}
+.darkblue,.hover-darkblue:hover
+{
+    color:#fff;
+    background-color:#315989
+}
+
+
+/* Text Positions */
+.center
+{
+    text-align:center
+}
+.left
+{
+    text-align:left
+}
+.right
+{
+    text-align:right
+}
+
+
+/* Sizes */
+.small
+{
+    font-size:24px
+}
+.medium
+{
+    font-size:32px
+}
+.big
+{
+    font-size:64px
+}
+
+
+/* Table */
+.myTable
+{
+    border-collapse:collapse;
+    border-spacing:0;
+    /*width:100%;*/
+    margin-left: auto;
+    margin-right: auto;
+    display:table;
+    table-layout: fixed;
+    font-size: 150%;
+}
+.myTable tr
+{
+
+}
+.myTable td,.myTtable th
+{
+    padding:16px 16px;
+    display:table-cell;
+    text-align:center;
+    vertical-align:top
+}
+
+/* Buttons */
+.button
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#315989;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+
+}
+.paddingLarge
+{
+    padding:12px 24px
+}
+.buttonLarge
+{
+    font-size:18px
+}
+
+
+/* Margin */
+.margin
+{
+    margin:16px
+}
+.marginTop
+{
+    margin-top:16px
+}
+.marginBottom
+{
+    margin-bottom:16px
+}
+.fixedPadding64
+{
+    padding-top:64px;
+    padding-bottom:64px;
+}
+.fixedPadding32
+{
+    padding-top:32px;
+    padding-bottom:32px;
+}
+.fixedPadding16
+{
+    padding-top:16px;
+    padding-bottom:16px;
+}
+.xlarge
+{
+    font-size:16px
+}
+
+
+/* h:controls */
+.text-input /* add this to h:xxx styleClass="text-input" */
+{
+    background-color: #777;
+}
+.buttonStyleClass
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#315989;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+.buttonStyleClass
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#315989;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+
+
+.signupButtonStyleClass
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#55A13E;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+.disconnectButtonStyleClass
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#315989;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap;
+    float: right;
+    color: #fff;
+}
+
+.cancelButtonStyleClass
+{
+    border:none;
+    border-radius: 25px;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:#7F7F7F;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap
+}
+
+.deleteButtonStyleClass
+{
+	border:none;
+	border-radius: 25px;
+	display:inline-block;
+	outline:0;
+	padding:8px 16px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	background-color:#DB4437;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap
+}
+
+.betterForm
+{
+    padding-bottom: 8px;
+    padding-right: 8px;
+    font-size: 24px;
+}
+
+.dataTableStyle{
+	border-collapse:collapse;
+        padding-bottom: 4px;
+}
+
+.dataTableStyleHeader{
+	text-align:center;
+	background-color: #315989;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.dataTableOddRows{
+	text-align:center;
+        padding: 8px;
+}
+
+.dataTableEvenRows{
+	text-align:center;
+        padding: 8px;
+}
+
+/* Tooltip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color:#7F7F7F;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

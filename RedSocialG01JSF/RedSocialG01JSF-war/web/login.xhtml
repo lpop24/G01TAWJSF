@@ -1,15 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <link rel="stylesheet" type="text/css" href="style/style.css"/>
         <title>Login</title>
     </h:head>
     <h:body>
-        <h1>Login</h1>
+        <header class="container blue left" style="padding:4px 16px">
+            <img src="images/imagen_corporativa.png" align="left" width="100" height="100" style="padding-right: 8px" />
+            <h1 class="margin medium">Conectad@s</h1>
+        </header>
+
+<header class="container lightblue center" style="padding:200px 16px">
+    <p class="big">Login</p>
+    <h:form>
         
-        <h:form>
-            <table>
+            <table class="myTable">
                 <tr>
                     <td>Usuario: </td>
                     <td><h:inputText size="20" value="#{loginBean.user}"/></td>
@@ -19,13 +27,21 @@
                     <td><h:inputSecret value="#{loginBean.password}"/></td>
                 </tr> 
             </table>
-            <h:commandButton value="Entrar" action="#{loginBean.loguear()}"/>
-            <h:button value="Crear Cuenta" outcome="crear/crearUsuario.xhtml"/>
-            
-            
-            
-        </h:form>
-        <br/>
+
+        <h:button value="Entrar" outcome="crear/crearUsuario.xhtml" styleClass="signupButtonStyleClass"/>
+            <h:commandButton value="Entrar" action="#{loginBean.loguear()}" styleClass="buttonStyleClass"/>
+                        
+    </h:form>
+</header>
+        
+<footer class="container darkblue center">  
+  <div class="xlarge fixedPadding16">
+    <p>@Copyright Grupo 1</p>
+ </div>
+ 
+</footer>
+
+        
     </h:body>
 </html>
 

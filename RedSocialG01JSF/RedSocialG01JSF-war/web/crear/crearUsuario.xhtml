@@ -4,16 +4,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <link rel="stylesheet" type="text/css" href="../style/style.css"/>
         <title>Crear Perfil</title>
     </h:head>
-    <h:body>
-        <h:form>
+
+<h:body>
+        <header class="container blue left" style="padding:4px 16px">
+            <img src="../images/imagen_corporativa.png" align="left" width="100" height="100" style="padding-right: 8px" />
+            <h1 class="margin medium">Conectad@s</h1>
+        </header>
+
+<header class="container lightblue center" style="padding:200px 16px">
+
+    <h:form styleClass="betterForm">
+            
             Usuario: <h:inputText value="#{crearUsuarioBean.usuarioLogin}"/><br/>
             Contraseña: <h:inputSecret value="#{crearUsuarioBean.password}"/> <br/>
             Nombre: <h:inputText value="#{crearUsuarioBean.nombre}"/> <br/>
             Apellidos: <h:inputText value="#{crearUsuarioBean.apellidos}"/> <br/>
             Fecha de Nacimiento: <h:inputText value="#{crearUsuarioBean.fechaNacimiento}">  
-                                 <f:convertDateTime pattern="yyyy-MM-dd"/>  
+                <f:convertDateTime pattern="yyyy-MM-dd" dateStyle="short"/>  
                                  </h:inputText><br/> 
             Instagram: <h:inputText value="#{crearUsuarioBean.instagram}"/> <br/> 
             Correo Electrónico: <h:inputText value="#{crearUsuarioBean.correoElectronico}"/> <br/>
@@ -21,10 +31,25 @@
             Teléfono: <h:inputText value="#{crearUsuarioBean.telefono}"/> <br/>
             Página Web: <h:inputText value="#{crearUsuarioBean.paginaWebUsuario}"/> <br/>
             Aficiones: <h:inputText value="#{crearUsuarioBean.aficiones}"/> <br/>
-            <!-- FALTA FOTO -->
             Ciudad: <h:inputText value="#{crearUsuarioBean.ciudad}"/> <br/>
-            <h:commandButton action="#{crearUsuarioBean.doGuardar()}" value="Guardar" /> <h:commandButton action="#{crearUsuarioBean.doCancelar()}" value="Cancelar" />
+            <h:button value="Cancelar" outcome="/login.xhtml" styleClass="cancelButtonStyleClass"/>
+            <h:commandButton action="#{crearUsuarioBean.doGuardar()}" value="Guardar" styleClass="signupButtonStyleClass"/> 
         </h:form>
+
+
+</header>
+        
+<footer class="container darkblue center">  
+  <div class="xlarge fixedPadding16">
+    <p>@Copyright Grupo 1</p>
+ </div>
+</footer>
+
+        
     </h:body>
+
+
+
+
 </html>
 

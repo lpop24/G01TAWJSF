@@ -182,7 +182,7 @@ public class CrearUsuarioBean {
         usuario.setTwitter(twitter);
         usuario.setPaginaWebUsuario(paginaWebUsuario);
         usuario.setAficiones(aficiones);
-        //usuario.setFoto(foto);
+        usuario.setTelefono(telefono);
         usuario.setCiudad(ciudad);       
         usuario.setLoginFK(login);
 
@@ -191,7 +191,7 @@ public class CrearUsuarioBean {
     }
     
     public String doCancelar(){
-        return "index";
+        return "login";
     }
     
 }

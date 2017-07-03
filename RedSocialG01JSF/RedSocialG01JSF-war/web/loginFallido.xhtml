@@ -3,14 +3,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
+        <link rel="stylesheet" type="text/css" href="style/style.css"/>
         <title>Error de Login</title>
     </h:head>
+
     <h:body>
-        No hemos encontrado una cuenta con esos datos D:<br/>
-        <br/>
-        Asegúrate de que has los introducido correctamente<br/>
-        <br/>
-        <h:button value="Volver" onclick=""/>
+        <header class="container blue left" style="padding:4px 16px">
+        <img src="images/imagen_corporativa.png" align="left" width="100" height="100" style="padding-right: 8px" />
+            <h1 class="margin medium">Conectad@s</h1>
+        </header>
+
+<header class="container lightblue center" style="padding:200px 16px">
+            <p class="medium">No hemos encontrado una cuenta con esos datos.</p>
+            <br/>
+            <br/>
+            <p class="medium">Asegúrate de que los has introducido correctamente</p>
+            <br/>
+            <br/>
+        <h:button value="Volver" outcome="login.xhtml" styleClass="buttonStyleClass"/>
+
+
+</header>
+        
+<footer class="container darkblue center">  
+  <div class="xlarge fixedPadding16">
+    <p>@Copyright Grupo 1</p>
+ </div>
+</footer>
+        
     </h:body>
 </html>
 
